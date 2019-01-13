@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 
-const Footer = () => {
+const Header = () => {
   return;
 }
 
-export default Footer;
+export default Header;
