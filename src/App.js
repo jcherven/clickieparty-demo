@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
 import Tile from './Components/Tile';
 import Wrapper from './Components/Wrapper'
-import tiles from './assets/tiles.json';
+import tiles from './tiles.json';
+import _ from 'underscore';
 
 class App extends Component {
   state = {
     tiles
   }
 
+  shuffleTiles = (tileObj) => {
+    return _.shuffle(tileObj);
+  }
+
   render() {
+    let newTileOrder = this.shuffleTiles(this.state.tiles);
     return (
       <Wrapper>
-        {this.state.tiles.map(tile => (
+        {newTileOrder.map(tile => (
           <Tile
             key={tile.id}
             src={tile.image}
