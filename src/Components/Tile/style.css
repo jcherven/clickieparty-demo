@@ -1,5 +1,4 @@
 .tile {
-  
   margin: 16px auto;
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
@@ -7,6 +6,11 @@
   justify-content: center;
 }
 
-.tile-image {
-  padding: 8px;
+.tile > .tile-image {
+  height: 90%;
+  overflow: hidden;
+}
+
+.tile > .tile-image > img {
+  width: 90%
 }

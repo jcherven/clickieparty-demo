@@ -4,9 +4,7 @@ import './style.css';
 const GameArea = (props) => {
   return(
     <div
-      className='game-area'
-    >
-      {props.children}
+      className='game-area'>
     </div>
   )
 }

@@ -3,9 +3,7 @@ import './style.css';
 
 const Tile = (props) => {
   return(
-    <div
-      className='tile'
-    >
+    <div className='tile'>
       <img
         className='tile-image'
         src={props.src}
