@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+// import Header from './Components/Header';
+import Wrapper from './Components/Wrapper';
+// import GameArea from './Components/GameArea';
 import Tile from './Components/Tile';
-import Wrapper from './Components/Wrapper'
+// import Footer from './Components/Footer';
 import tiles from './tiles.json';
 import _ from 'underscore';
 

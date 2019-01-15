@@ -2,7 +2,7 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Desktop/clickieparty-demo
+cd ~/Desktop/clickieparty-demo/src
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -157,11 +157,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 16) / 32)
+let s:l = 1 - ((0 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+1
 normal! 0
 wincmd w
 argglobal
@@ -182,6 +182,7 @@ normal! zt
 1
 normal! 0
 wincmd w
+3wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 110) / 220)
 exe 'vert 2resize ' . ((&columns * 93 + 110) / 220)
 exe '3resize ' . ((&lines * 32 + 34) / 69)
@@ -473,7 +474,7 @@ exe '3resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
-tabnext 1
+tabnext 2
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
