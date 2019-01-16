@@ -9,11 +9,18 @@ import _ from 'underscore';
 
 class App extends Component {
   state = {
-    tiles,
+    tiles
   }
 
   activateTile = (tileId) => {
-    console.log(`tile ${tileId} was clicked`)
+    let stateElement = this.state.tiles[tileId]
+    let tileActivation = stateElement.activated;
+    console.log(`tile ${stateElement.id} was clicked`)
+    console.log(tileId)
+    // this.setState({
+
+    // })
+    console.log(tileActivation)
     return;
   }
 
