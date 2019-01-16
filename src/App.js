@@ -9,21 +9,24 @@ import _ from 'underscore';
 
 class App extends Component {
   state = {
-    tiles
+    tiles,
   }
 
-  shuffleTiles = (tileObj) => {
-    return _.shuffle(tileObj);
+  activateTile = (tileId) => {
+    console.log(`tile ${tileId} was clicked`)
+    return;
   }
 
   render() {
-    let newTileOrder = this.shuffleTiles(this.state.tiles);
+    let tileArrange = _.shuffle(this.state.tiles);
     return (
       <Wrapper>
-        {newTileOrder.map(tile => (
+        {tileArrange.map(tile => (
           <Tile
             key={tile.id}
+            id={tile.id}
             src={tile.image}
+            handleClick={this.activateTile.bind(this, tile.id)}
           />
         ))}
       </Wrapper>

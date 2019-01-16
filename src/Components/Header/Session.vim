@@ -2,23 +2,28 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Desktop/clickieparty-demo
+cd ~/Desktop/clickieparty-demo/src/Components/Header
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +11 ~/Desktop/clickieparty-demo/src/App.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Wrapper/index.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Wrapper/style.css
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Header/index.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Header/style.css
-badd +0 ~/Desktop/clickieparty-demo/src/Components/GameArea/index.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/GameArea/style.css
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Tile/index.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Tile/style.css
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Footer/index.js
-badd +0 ~/Desktop/clickieparty-demo/src/Components/Footer/style.css
+badd +1 ~/Desktop/clickieparty-demo/src/App.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Wrapper/index.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Wrapper/style.css
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Header/index.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Header/style.css
+badd +1 ~/Desktop/clickieparty-demo/src/Components/GameArea/index.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/GameArea/style.css
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Tile/index.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Tile/style.css
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Footer/index.js
+badd +1 ~/Desktop/clickieparty-demo/src/Components/Footer/style.css
 badd +4 ~/Desktop/clickieparty-demo/Session.vim
+badd +0 ~/Desktop/clickieparty-demo/NERD_tree_1
+badd +0 ~/Desktop/clickieparty-demo/src/NERD_tree_2
+badd +0 ~/Desktop/clickieparty-demo/src/NERD_tree_3
+badd +0 ~/Desktop/clickieparty-demo/src/NERD_tree_4
+badd +0 ~/Desktop/clickieparty-demo/src/NERD_tree_5
 argglobal
 silent! argdel *
 edit ~/Desktop/clickieparty-demo/src/Components/Wrapper/index.js
@@ -43,7 +48,7 @@ exe '3resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 188 + 110) / 220)
 argglobal
 enew
-file ~/Desktop/clickieparty-demo/NERD_tree_1
+file ~/Desktop/clickieparty-demo/src/Components/Wrapper/NERD_tree_1
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -93,7 +98,7 @@ exe '2resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 2resize ' . ((&columns * 188 + 110) / 220)
 exe '3resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 188 + 110) / 220)
-tabedit ~/Desktop/clickieparty-demo/src/App.js
+tabedit ~/Desktop/clickieparty-demo/src/NERD_tree_2
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -118,8 +123,6 @@ exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
 argglobal
-enew
-file ~/Desktop/clickieparty-demo/src/NERD_tree_2
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -128,8 +131,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 wincmd w
 argglobal
+if bufexists('~/Desktop/clickieparty-demo/src/App.js') | buffer ~/Desktop/clickieparty-demo/src/App.js | else | edit ~/Desktop/clickieparty-demo/src/App.js | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -182,13 +193,14 @@ normal! zt
 1
 normal! 0
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 110) / 220)
 exe 'vert 2resize ' . ((&columns * 93 + 110) / 220)
 exe '3resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
-tabedit ~/Desktop/clickieparty-demo/src/App.js
+tabedit ~/Desktop/clickieparty-demo/src/NERD_tree_3
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -213,8 +225,6 @@ exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
 argglobal
-enew
-file ~/Desktop/clickieparty-demo/src/NERD_tree_3
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -223,8 +233,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 wincmd w
 argglobal
+if bufexists('~/Desktop/clickieparty-demo/src/App.js') | buffer ~/Desktop/clickieparty-demo/src/App.js | else | edit ~/Desktop/clickieparty-demo/src/App.js | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -283,7 +301,7 @@ exe '3resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
-tabedit ~/Desktop/clickieparty-demo/src/App.js
+tabedit ~/Desktop/clickieparty-demo/src/NERD_tree_4
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -308,8 +326,6 @@ exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
 argglobal
-enew
-file ~/Desktop/clickieparty-demo/src/NERD_tree_4
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -318,8 +334,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 wincmd w
 argglobal
+if bufexists('~/Desktop/clickieparty-demo/src/App.js') | buffer ~/Desktop/clickieparty-demo/src/App.js | else | edit ~/Desktop/clickieparty-demo/src/App.js | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -378,7 +402,7 @@ exe '3resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
-tabedit ~/Desktop/clickieparty-demo/src/App.js
+tabedit ~/Desktop/clickieparty-demo/src/NERD_tree_5
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -403,8 +427,6 @@ exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
 argglobal
-enew
-file ~/Desktop/clickieparty-demo/src/NERD_tree_5
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -413,8 +435,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 wincmd w
 argglobal
+if bufexists('~/Desktop/clickieparty-demo/src/App.js') | buffer ~/Desktop/clickieparty-demo/src/App.js | else | edit ~/Desktop/clickieparty-demo/src/App.js | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -473,7 +503,7 @@ exe '3resize ' . ((&lines * 32 + 34) / 69)
 exe 'vert 3resize ' . ((&columns * 94 + 110) / 220)
 exe '4resize ' . ((&lines * 33 + 34) / 69)
 exe 'vert 4resize ' . ((&columns * 94 + 110) / 220)
-tabnext 1
+tabnext 2
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
