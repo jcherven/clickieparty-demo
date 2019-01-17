@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Header from './Components/Header';
+import Header from './Components/Header';
 import Wrapper from './Components/Wrapper';
 // import GameArea from './Components/GameArea';
 import Tile from './Components/Tile';
@@ -9,25 +9,30 @@ import _ from 'underscore';
 
 class App extends Component {
   state = {
-    tiles
+    tiles,
+    activeTiles: [],
+    score: 0
   }
 
   activateTile = (tileId) => {
-    let stateElement = this.state.tiles[tileId]
-    let tileActivation = stateElement.activated;
-    console.log(`tile ${stateElement.id} was clicked`)
-    console.log(tileId)
-    // this.setState({
-
-    // })
-    console.log(tileActivation)
+    if (this.state.activeTiles.includes(tileId)) {
+      console.log(`activeTiles state array already includes ${tileId}`);
+    }
+    else {
+      this.setState(state => {
+        const newList = state.activeTiles.concat(tileId);
+        return { activeTiles: newList }
+      })
+      this.setState({ score: this.state.score + 1 });
+    };
     return;
-  }
+  };
 
   render() {
     let tileArrange = _.shuffle(this.state.tiles);
     return (
       <Wrapper>
+        <Header />
         {tileArrange.map(tile => (
           <Tile
             key={tile.id}
