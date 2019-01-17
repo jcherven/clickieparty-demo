@@ -11,12 +11,13 @@ class App extends Component {
   state = {
     tiles,
     activeTiles: [],
-    score: 0
+    score: 0,
+    gameActive: 1
   }
 
   activateTile = (tileId) => {
     if (this.state.activeTiles.includes(tileId)) {
-      console.log(`activeTiles state array already includes ${tileId}`);
+      this.setState({ gameActive: 0 })
     }
     else {
       this.setState(state => {
@@ -35,15 +36,16 @@ class App extends Component {
     return (
       <Wrapper>
         <Navbar scoreValue={this.state.score}/>
-        {console.log(this.state.activeTiles.length)}
-        {tileArrange.map(tile => (
-          <Tile
-            key={tile.id}
-            id={tile.id}
-            src={tile.image}
-            handleClick={this.activateTile.bind(this, tile.id)}
-          />
-        ))}
+        { this.state.gameActive ?
+            tileArrange.map(tile => (
+              <Tile
+                key={tile.id}
+                id={tile.id}
+                src={tile.image}
+                handleClick={this.activateTile.bind(this, tile.id)}
+              />
+            )) : null
+        }
       </Wrapper>
     );
   }
