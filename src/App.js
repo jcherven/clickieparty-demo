@@ -4,6 +4,7 @@ import Wrapper from './Components/Wrapper';
 // import GameArea from './Components/GameArea';
 import Tile from './Components/Tile';
 // import Footer from './Components/Footer';
+import GameOver from './Components/GameOver';
 import tiles from './tiles.json';
 import _ from 'underscore';
 
@@ -44,7 +45,7 @@ class App extends Component {
                 src={tile.image}
                 handleClick={this.activateTile.bind(this, tile.id)}
               />
-            )) : null
+            )) : <GameOver />
         }
       </Wrapper>
     );
