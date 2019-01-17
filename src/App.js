@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from './Components/Header';
+import Navbar from './Components/Navbar';
 import Wrapper from './Components/Wrapper';
 // import GameArea from './Components/GameArea';
 import Tile from './Components/Tile';
@@ -21,9 +21,11 @@ class App extends Component {
     else {
       this.setState(state => {
         const newList = state.activeTiles.concat(tileId);
-        return { activeTiles: newList }
+        return {
+          activeTiles: newList,
+          score: state.score + 1
+        }
       })
-      this.setState({ score: this.state.score + 1 });
     };
     return;
   };
@@ -32,7 +34,8 @@ class App extends Component {
     let tileArrange = _.shuffle(this.state.tiles);
     return (
       <Wrapper>
-        <Header />
+        <Navbar scoreValue={this.state.score}/>
+        {console.log(this.state.activeTiles.length)}
         {tileArrange.map(tile => (
           <Tile
             key={tile.id}
